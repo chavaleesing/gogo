@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"gogo/customer"
+	"gogo/user"
 )
 
 func main() {
@@ -47,6 +49,37 @@ func main() {
 
 	sum2(2, 2, 2, 2, 2, 2, 2, 2, 2, 2)
 
+	// -------------------------------------------------------------------------------------------------------------------
+
+	println(customer.Name)
+	println(customer.Print_name())
+
+	test1 := 10
+	fmt.Println((&test1))
+
+	// -------------------------------------------------------------------------------------------------------------------
+
+	q := 10
+	// var w *int
+	// w = &q
+	w := &q
+	println(q, w)
+
+	*w = 999
+	println(q, w)
+
+	st1 := "test jaa"
+	println(st1)
+	set_value_format(&st1)
+	println(st1)
+
+	println(user.Get_info(user.Person{Name: "peter", Age: 32}))
+
+	user_1 := user.Person{Name: "u1", Age: 1}
+	println(user_1.Name)
+	user_1.Rename("new new")
+	println(user_1.Name)
+
 }
 
 func sum(a int, b int) int {
@@ -56,4 +89,8 @@ func sum(a int, b int) int {
 func cal(fn func(int, int) int) {
 	ans := fn(30, 40)
 	println(ans)
+}
+
+func set_value_format(input *string) {
+	*input = "I'm new format of " + *input
 }
